@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Change Petition</title>
+    <style>
+        /* General body styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e0f7fa; /* Light blue background */
+            color: #00695c; /* Dark teal text */
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Header styling */
+        h1 {
+            color: #004d40; /* Darker teal */
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        /* Blockquote styling */
+        blockquote {
+            font-style: italic;
+            color: #00796b; /* Medium teal */
+            border-left: 5px solid #004d40;
+            padding-left: 15px;
+            margin: 20px 0;
+        }
+
+        /* Image styling */
+        .image-link {
+            display: block;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .image-link img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .image-link img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Form styling */
+        form {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #004d40;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #004d40;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #00796b;
+            box-shadow: 0 0 5px rgba(0, 121, 107, 0.5);
+        }
+
+        /* Radio button styling */
+        .radio-group {
+            margin-bottom: 20px;
+        }
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+        .radio-group input[type="radio"] {
+            margin: 0 10px 0 0;
+            width: auto;
+            cursor: pointer;
+        }
+
+        /* Button styling */
+        button {
+            background: #004d40;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #00796b;
+        }
+
+        /* Pattern validation styling */
+        input:invalid {
+            border-color: #d32f2f; /* Red for invalid input */
+        }
+        input:valid {
+            border-color: #388e3c; /* Green for valid input */
+        }
+    </style>
+</head>
+<body>
+    <h1>Take Action Against Climate Change</h1>
+    <p>Climate change is one of the most pressing issues of our time. It affects ecosystems, weather patterns, and human livelihoods. We must act now to reduce carbon emissions and protect our planet for future generations.</p>
+    
+    <blockquote>
+        "The Earth is what we all have in common." – Wendell Berry
+    </blockquote>
+    
+    <!-- Image as a link -->
+    <a href="https://www.un.org/en/climatechange" class="image-link" target="_blank">
+        <img src="/Users/slowhike/Documents/GitHub/Final-HTML-Artifact/Climate-Collage.jpg" alt="Climate Change Image">
+    </a>
+
+    <!-- Commented out line for demonstration -->
+    <!-- <p>This line is commented out and will not appear on the page.</p> -->
+
+    <h2>Sign the Petition</h2>
+    <p>Join us in urging governments and corporations to take immediate action against climate change. Fill out the form below to show your support.</p>
+
+    <!-- Form to collect user input -->
+    <form action="submit.html" method="GET">
+        <!-- Select field -->
+        <label for="country">Select your country:</label>
+        <select id="country" name="country" required>
+            <option value="">Choose your country</option>
+            <option value="usa">United States</option>
+            <option value="canada">Canada</option>
+            <option value="uk">United Kingdom</option>
+        </select>
+
+        <!-- Radio input section -->
+        <div class="radio-group">
+            <label>How concerned are you about climate change?</label>
+            <label>
+                <input type="radio" id="very-concerned" name="concern" value="very-concerned" required>
+                Very Concerned
+            </label>
+            <label>
+                <input type="radio" id="somewhat-concerned" name="concern" value="somewhat-concerned">
+                Somewhat Concerned
+            </label>
+            <label>
+                <input type="radio" id="not-concerned" name="concern" value="not-concerned">
+                Not Concerned
+            </label>
+        </div>
+
+        <!-- Email input with pattern validation -->
+        <label for="email">Enter your email:</label>
+        <input type="email" id="email" name="email" placeholder="example@example.com" required
+               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+               title="Please enter a valid email address (e.g., example@example.com)">
+
+        <!-- Textarea for additional comments -->
+        <label for="comments">Any additional comments?</label>
+        <textarea id="comments" name="comments" rows="4" placeholder="Share your thoughts..."></textarea>
+
+        <!-- Submit button -->
+        <button type="submit">Sign the Petition</button>
+    </form>
+</body>
+</html>

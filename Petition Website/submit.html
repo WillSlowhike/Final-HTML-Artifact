@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- The head section contains metadata and links to external resources -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You for Signing!</title> <!-- Title of the page -->
+    <style>
+        /* Basic CSS to style the page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .response {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- The body contains the visible content of the page -->
+    <h1>Thank You for Signing the Petition!</h1> <!-- Main heading -->
+    <p>Your support is crucial in the fight against climate change. Here’s the information you submitted:</p>
+
+    <!-- Container to display the form data -->
+    <div class="response" id="response">
+        <!-- JavaScript will populate this section -->
+    </div>
+
+    <script>
+        // JavaScript to extract and display form data from the URL
+        function getQueryParams() {
+            const params = {};
+            const queryString = window.location.search.substring(1); // Get the query string (everything after the "?")
+            const pairs = queryString.split('&'); // Split into key-value pairs
+
+            pairs.forEach(pair => {
+                const [key, value] = pair.split('='); // Split each pair into key and value
+                params[decodeURIComponent(key)] = decodeURIComponent(value || ''); // Decode and store in the params object
+            });
+
+            return params;
+        }
+
+        function displayFormData() {
+            const params = getQueryParams(); // Get the form data from the URL
+            const responseDiv = document.getElementById('response'); // Get the container to display the data
+
+            // Create HTML to display the form data
+            let html = `
+                <p><strong>Country:</strong> ${params.country || 'Not provided'}</p>
+                <p><strong>Concern Level:</strong> ${params.concern || 'Not provided'}</p>
+                <p><strong>Email:</strong> ${params.email || 'Not provided'}</p>
+                <p><strong>Comments:</strong> ${params.comments || 'No comments provided'}</p>
+            `;
+
+            responseDiv.innerHTML = html; // Insert the HTML into the container
+        }
+
+        // Call the function to display the form data when the page loads
+        displayFormData();
+    </script>
+</body>
+</html>
