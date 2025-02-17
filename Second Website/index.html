@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page - Climate Action</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e0f7fa;
+            color: #00695c;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #004d40;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+        img {
+            width: 300px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        a {
+            color: #00796b;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .quiz {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            text-align: left;
+        }
+        .quiz h2 {
+            color: #004d40;
+        }
+        .quiz label {
+            display: block;
+            margin: 10px 0;
+        }
+        .quiz button {
+            background-color: #00796b;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .quiz button:hover {
+            background-color: #004d40;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Climate Action Hub!</h1>
+        <p>
+            Climate change is one of the most pressing issues of our time. 
+            <strong>Join us</strong> in taking action to protect our planet for future generations.
+        </p>
+        <p>
+            <em>Every small step counts.</em> Together, we can make a difference.
+        </p>
+        <!-- Here's a picture of the Earth -->
+        <img src="https://media.giphy.com/media/3o7TKUM3IgJBX2as9O/giphy.gif" alt="Earth GIF">
+        <br>
+        <p>
+            <a href="info.html">Learn More About Climate Change</a>
+        </p>
+
+        <!-- Quiz Section -->
+        <div class="quiz">
+            <h2>Test Your Climate Change Knowledge!</h2>
+            <form id="quizForm">
+                <!-- Question 1 -->
+                <div>
+                    <p><strong>1. What is the main cause of climate change?</strong></p>
+                    <label>
+                        <input type="radio" name="q1" value="a"> Natural weather patterns
+                    </label>
+                    <label>
+                        <input type="radio" name="q1" value="b"> Human activities like burning fossil fuels
+                    </label>
+                    <label>
+                        <input type="radio" name="q1" value="c"> Volcanic eruptions
+                    </label>
+                </div>
+
+                <!-- Question 2 -->
+                <div>
+                    <p><strong>2. Which of the following is a greenhouse gas?</strong></p>
+                    <label>
+                        <input type="radio" name="q2" value="a"> Oxygen
+                    </label>
+                    <label>
+                        <input type="radio" name="q2" value="b"> Carbon dioxide
+                    </label>
+                    <label>
+                        <input type="radio" name="q2" value="c"> Nitrogen
+                    </label>
+                </div>
+
+                <!-- Question 3 -->
+                <div>
+                    <p><strong>3. What is one effect of climate change?</strong></p>
+                    <label>
+                        <input type="radio" name="q3" value="a"> Longer winters
+                    </label>
+                    <label>
+                        <input type="radio" name="q3" value="b"> Rising sea levels
+                    </label>
+                    <label>
+                        <input type="radio" name="q3" value="c"> More oxygen in the atmosphere
+                    </label>
+                </div>
+
+                <button type="button" onclick="checkAnswers()">Submit Answers</button>
+            </form>
+
+            <!-- Result Display -->
+            <div class="result" id="result"></div>
+        </div>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            const answers = {
+                q1: 'b', // Correct answer for Question 1
+                q2: 'b', // Correct answer for Question 2
+                q3: 'b'  // Correct answer for Question 3
+            };
+
+            let score = 0;
+            const form = document.getElementById('quizForm');
+            const resultDiv = document.getElementById('result');
+
+            // Check each question
+            for (let i = 1; i <= 3; i++) {
+                const selected = form.querySelector(`input[name="q${i}"]:checked`);
+                if (selected && selected.value === answers[`q${i}`]) {
+                    score++;
+                }
+            }
+
+            // Display result
+            resultDiv.innerHTML = `You scored ${score} out of 3!`;
+            if (score === 3) {
+                resultDiv.style.color = '#004d40';
+            } else {
+                resultDiv.style.color = '#e64a19';
+            }
+        }
+    </script>
+</body>
+</html>
